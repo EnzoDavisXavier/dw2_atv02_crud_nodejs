@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastro de Artista</title>
+</head>
+<body>
+
+    <h1><%= artista ? "Editar Artista" : "Cadastrar Artista" %></h1>
+
+    <form action="<%= artista ? '/artista/editar/' + artista.id : '/artista/cadastrar' %>"
+          method="POST">
+
+        <label>Nome:</label>
+        <input type="text" name="nome"
+               value="<%= artista ? artista.nome : '' %>" required>
+
+        <br><br>
+
+        <label>Nacionalidade:</label>
+        <input type="text" name="nacionalidade"
+               value="<%= artista ? artista.nacionalidade : '' %>" required>
+
+        <br><br>
+
+        <label>Data de nascimento:</label>
+        <input type="text" name="nascimento"
+               placeholder="DD/MM/AAAA"
+               value="<%= artista ? artista.nascimento : '' %>" required>
+
+        <br><br>
+
+        <button type="submit">Salvar</button>
+        <a href="/artista">Cancelar</a>
+
+    </form>
+
+</body>
+</html>
